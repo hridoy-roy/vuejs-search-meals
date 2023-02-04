@@ -1,5 +1,7 @@
 <template>
-  <router-view/>
+<div>
+  Name
+</div>
 </template>
 
 <script setup></script>
