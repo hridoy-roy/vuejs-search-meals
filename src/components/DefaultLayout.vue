@@ -1,11 +1,9 @@
 <template>
+  <navbar/>
   <div class="bg-gray-500 h-full">
     <main>
-      <navbar/>
+      <router-view />
     </main>
-    <footer>
-
-    </footer>
   </div>
 </template>
 <script setup >

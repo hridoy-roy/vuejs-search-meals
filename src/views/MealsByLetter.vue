@@ -4,10 +4,7 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: "SearchByLetter"
-}
+<script setup>
 </script>
 
 <style scoped>

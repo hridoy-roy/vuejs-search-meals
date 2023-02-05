@@ -4,11 +4,7 @@
 </div>
 </template>
 
-<script>
-console.log(4);
-export default {
-  name: "SearchByIngredients"
-}
+<script setup>
 </script>
 
 <style scoped>

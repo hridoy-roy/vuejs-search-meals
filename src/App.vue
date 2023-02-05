@@ -2,6 +2,10 @@
   <router-view/>
 </template>
 
-<script setup></script>
+<script setup>
 
-<style scoped></style>
+</script>
+
+<style scoped>
+
+</style>
