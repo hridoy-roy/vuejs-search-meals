@@ -1,31 +1,20 @@
 <template>
-<div class="flex flex-col p-8 justify-center">
-
-  <div class="flex justify-center gap-3 mt-3">
-    <router-link :to="{name: 'byLetter', params: {letter}}" v-for="letter of letters" :key="letter">
-      {{letter}}
-    </router-link>
+  <div class="grid grid-cols-4 gap-4 pt-5">
+    <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal"/>
   </div>
-  <pre>
-    {{ingredients}}
-  </pre>
-</div>
 </template>
 <script setup>
-import {computed, onMounted,ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import store from "../store";
-import axiosClient from "../../axiosClient.js";
-
-const meals = computed(() => store.state.meals)
-
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+import MealItem from "../components/MealItem.vue";
 
 
-const ingredients = ref([]);
 
-onMounted( async () => {
-  const response =  await axiosClient.get('list.php?i=list');
-  ingredients.value= response.data
+
+const meals = ref([]);
+
+onMounted(() => {
+  meals.value = computed(() => store.state.meals)
 })
 </script>
 <style lang="">
