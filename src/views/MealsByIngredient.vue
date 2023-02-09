@@ -1,24 +1,21 @@
 <template>
-<div>
- <pre>
-    {{ingredients}}
- </pre>
-</div>
+  <Meals :meals="meals" />
 </template>
 
 <script setup>
 
-import {onMounted, ref} from "vue";
-import axiosClient from "../../axiosClient.js";
+import {computed, onMounted, ref} from "vue";
+import {useRoute} from "vue-router";
+import store from "../store/index.js";
+import Meals from "../components/Meals.vue";
 
-const ingredients =  ref([]);
+const currentRoute = useRoute()
 
+const meals = computed(() => store.state.mealsByIngredient)
+console.log(currentRoute.params);
 onMounted(() => {
-  axiosClient.get('list.php?i=list').then(({data}) => {
-    ingredients.value = data.meals;
-  })
+  store.dispatch('searchMealsByIngredient', currentRoute.params.ingredient);
 })
-
 </script>
 
 <style scoped>

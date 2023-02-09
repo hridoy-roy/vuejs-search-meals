@@ -7,9 +7,7 @@
         class="rounded border-2 border-gray-600 w-full"
         placeholder="Search For Meals">
 
-    <div class="grid grid-cols-4 gap-4 pt-5">
-      <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal"/>
-    </div>
+    <Meals :meals="meals"/>
   </div>
 </template>
 
@@ -18,7 +16,7 @@
 import {computed, onMounted, ref} from "vue";
 import store from "../store";
 import {useRoute} from "vue-router";
-import MealItem from "../components/MealItem.vue";
+import Meals from "../components/Meals.vue";
 
 
 const currentRoute = useRoute()
